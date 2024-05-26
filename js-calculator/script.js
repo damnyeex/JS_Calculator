@@ -24,7 +24,7 @@ function endIntro(intro, overlay) {
     setTimeout(() => {
         intro.classList.remove('active');
         overlay.classList.remove('active');
-    }, 1500);
+    }, 3500);
 }
 
 okBtn.addEventListener('click', () => {
