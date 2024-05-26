@@ -11,7 +11,11 @@ const inputElem = document.getElementById("inputElem");
 
 const modalEl = document.querySelector(".modal");
 const overlayEl = document.querySelector(".overlay");
-const okBtn = document.querySelector('.modal__message button');
+const okBtn = document.getElementById("okBtn");
+const confirmBtn = document.getElementById("confirmBtn");
+const confirmModalEl = document.querySelector(".confirm-modal");
+const confirmYesBtn = document.getElementById("confirmYes");
+const confirmNoBtn = document.getElementById("confirmNo");
 const introEl = document.querySelector('.intro');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,9 +31,18 @@ function endIntro(intro, overlay) {
     }, 3500);
 }
 
-okBtn.addEventListener('click', () => {
+function closeModal() {
     modalEl.classList.remove('active');
     overlayEl.classList.remove('active');
+}
+
+function closeConfirmModal() {
+    confirmModalEl.classList.remove('active');
+    overlayEl.classList.remove('active');
+}
+
+okBtn.addEventListener('click', () => {
+    closeModal();
     inputElem.value = '';
 });
 
@@ -98,6 +111,23 @@ btnEqual.addEventListener('click', () => {
 
 btnClear.addEventListener('click', () => {
     inputElem.value = '';
-    countArray = [];
+    countArray =  [];
     decide = null;
 });
+
+confirmBtn.addEventListener('click', () => {
+    confirmModalEl.classList.add('active');
+    overlayEl.classList.add('active');
+});
+
+confirmYesBtn.addEventListener('click', () => {
+    // Действия при нажатии "Y" (Завершить работу программы)
+    // Например, можно добавить здесь код для завершения работы программы
+    closeConfirmModal();
+});
+
+confirmNoBtn.addEventListener('click', () => {
+    closeConfirmModal();
+});
+
+// Возможно, тебе потребуется добавить обработчики для других кнопок и логику работы с ними
