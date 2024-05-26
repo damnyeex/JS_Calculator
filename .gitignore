@@ -1,0 +1,3 @@
+*.csproj
+node_modules/
+.vscode/
